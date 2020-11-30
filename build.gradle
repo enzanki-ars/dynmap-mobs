@@ -1,17 +1,35 @@
-apply plugin: 'java'
-apply plugin: 'maven'
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
 
 group = 'dynmap-mobs'
-version = '1.6-gabsoftware'
+version = '1.16.4-enzanki.rc1'
 
-description = "Unofficial build with 1.15.1 support"
+mainClassName = 'org.dynmap.mobs.DynmapMobsPlugin'
 
-sourceCompatibility = 1.6
-targetCompatibility = 1.6
+description = "Unofficial build with 1.16.4 support"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 tasks.withType(JavaCompile) {
 	options.encoding = 'UTF-8'
 }
 
+idea {
+    module {
+        downloadJavadoc = true
+    }
+}
+
+eclipse {
+    classpath {
+        downloadJavadoc = true
+    }
+}
 
 
 repositories {
@@ -21,6 +39,6 @@ repositories {
      maven { url "https://repo.maven.apache.org/maven2" }
 }
 dependencies {
-    compile group: 'org.bukkit', name: 'bukkit', version:'1.15.1-R0.1-SNAPSHOT'
-    compile group: 'us.dynmap', name: 'dynmap-api', version:'3.0-SNAPSHOT'
+    compile group: 'org.spigotmc', name: 'spigot-api', version:'1.16.4-R0.1-SNAPSHOT'
+    compile group: 'us.dynmap', name: 'dynmap-api', version:'3.1-SNAPSHOT'
 }

@@ -23,3 +23,8 @@
 
 # Mac filesystem dust
 /.DS_Store
+
+# Gradle
+.gradle/
+.idea/
+.vscode/
